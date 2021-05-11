@@ -1,10 +1,11 @@
 # 服务实现
 
 
-服务的实现须采用统一的参数签名，任何`Service`可注册到任意的`ServerType`，有两种方式实现服务：
+服务的实现须采用统一的参数签名，同一个`Service`可注册到任意`ServerType`。
 
+有两种方式实现服务：
 
-### 函数方式
+### 1. 函数方式
 
 函数参数为: `func(hydra.IContext)interface{}` 或 `func(hydra.IContext)`
 
@@ -23,8 +24,7 @@ func hello(ctx hydra.IContext){
     ctx.Response().JSON(200,"success")
 }
 ```
-
-### 对象方式
+### 2. 对象方式
 
 定义`struct`并提供一个或多个以`Handle`名称结尾，函数签名为 `func(hydra.IContext)interface{}` 或 `func(hydra.IContext)`的服务处理函数。
 
